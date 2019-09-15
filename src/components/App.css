@@ -1,0 +1,473 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/bgc.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(234, 241, 243, 78%);
+}
+
+header {
+  position: relative;
+  width: 100%;
+  height: 100px;
+}
+
+header h1 {
+  font-family: "Poiret One", cursive;
+  font-weight: 300;
+  font-size: 24px;
+  color: #707070;
+  text-align: center;
+  line-height: 100px;
+}
+
+header img {
+  position: absolute;
+  top: 50px;
+  right: 8%;
+  transform: translate(0, -50%);
+  width: 30px;
+  height: auto;
+  color: #707070;
+  transform-origin: center;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+header img:hover {
+  transform: translateY(-65%);
+}
+
+main {
+  flex-grow: 1;
+}
+
+.weatherResult {
+  flex-grow: 1;
+}
+
+.resultH2 {
+  font-family: "Poiret One", cursive;
+  font-weight: 300;
+  color: #707070;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.weatherResult .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 40px 1fr 1fr 1fr 1fr 1fr 1fr;
+  width: 256px;
+  height: 380px;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px #707070;
+  margin: 0 auto;
+}
+
+.weatherResult .container span,
+.weatherResult .container strong {
+  display: block;
+  font-family: "Poiret One", cursive;
+  font-weight: 300;
+  color: #707070;
+}
+
+.weatherResult .container strong {
+  font-size: 26px;
+}
+
+.weatherResult .container strong.smallStrong {
+  font-size: 20px;
+}
+
+.weatherResult .container span {
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+.weatherResult .container .weatherNow {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  line-height: 40px;
+}
+
+.weatherResult .container .weatherTemp {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.weatherResult .container .weatherSky {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.weatherResult .container .weatherSky img {
+  color: #707070;
+  width: auto;
+  height: 30px;
+}
+
+.weatherResult .container .weatherWind {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+.weatherResult .container .weatherPress {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.weatherResult .container .weatherSunrise {
+  grid-column: 1 / 2;
+  grid-row: 4 / 5;
+}
+
+.weatherResult .container .weatherHumi {
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+}
+
+.weatherResult .container .weatherSunset {
+  grid-column: 1 / 2;
+  grid-row: 5 / 6;
+}
+
+.weatherResult .container .weatherVis {
+  grid-column: 2 / 3;
+  grid-row: 5 / 6;
+}
+
+.weatherResult .container .weatherTime {
+  grid-column: 1 / 3;
+  grid-row: 7 / 8;
+}
+
+.weatherResult .container .weatherTime strong {
+  font-size: 14px;
+}
+
+main form input {
+  display: block;
+  width: 260px;
+  height: 35px;
+  font-family: "Poiret One", cursive;
+  font-size: 16px;
+  border: none;
+  box-shadow: 0 2px 6px #707070;
+  border-radius: 20px;
+  padding-left: 10px;
+  margin: 0 auto;
+  outline: none;
+}
+
+main form input::placeholder {
+  font-family: "Poiret One", cursive;
+  font-size: 16px;
+}
+
+main button {
+  position: relative;
+  display: block;
+  width: 160px;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #fff;
+  border: none;
+  box-shadow: 0 2px 6px #707070;
+  font-family: "Poiret One", cursive;
+  font-size: 18px;
+  margin: 10px auto;
+  outline: none;
+  transition: 0.5s;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+main button:hover {
+  transform: translateY(10%);
+}
+
+.containerCities {
+  width: 240px;
+  height: 280px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 45px auto 0;
+}
+
+.containerCities button {
+  flex-basis: 100px;
+  height: 30px;
+  font-size: 16px;
+}
+
+footer {
+  width: 100%;
+  height: 36px;
+  background-color: #fff;
+}
+
+footer span {
+  display: block;
+  font-family: "Poiret One", cursive;
+  font-size: 12px;
+  text-align: center;
+  line-height: 36px;
+}
+
+@media (min-width: 375px) and (orientation: portrait) {
+  .weatherResult .container {
+    height: 450px;
+  }
+
+  .resultH2 {
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 411px) and (orientation: portrait) {
+  .containerCities {
+    width: 250px;
+    height: 300px;
+  }
+
+  .containerCities button {
+    width: 45%;
+  }
+}
+
+@media (min-width: 700px) and (orientation: portrait) {
+  header {
+    height: 180px;
+    margin-bottom: 50px;
+  }
+
+  header h1 {
+    line-height: 180px;
+  }
+
+  header img {
+    top: 90px;
+  }
+
+  .containerCities {
+    margin-top: 150px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: portrait) {
+  header {
+    height: 250px;
+  }
+
+  header h1 {
+    line-height: 250px;
+  }
+
+  header img {
+    top: 125px;
+  }
+
+  .resultH2 {
+    margin-top: 100px;
+  }
+
+  .weatherResult .container {
+    height: 50%;
+  }
+}
+
+@media (min-width: 568px) and (orientation: landscape) {
+  body {
+    background-size: auto 100vw;
+  }
+
+  header {
+    height: 50px;
+  }
+
+  header h1 {
+    line-height: 50px;
+  }
+
+  main button {
+    margin: 8px auto;
+  }
+
+  .containerCities {
+    width: 400px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .weatherResult .container {
+    height: 400px;
+    grid-template-rows: 30px 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .weatherResult .container .weatherTime {
+    grid-column: 2 / 3;
+    grid-row: 5 / 6;
+  }
+
+  .weatherResult .container strong {
+    font-size: 20px;
+  }
+
+  .weatherResult .container .weatherSky img {
+    height: 20px;
+  }
+
+  .weatherResult .container strong.smallStrong {
+    font-size: 18px;
+  }
+
+  .resultH2 {
+    margin-bottom: 2px;
+  }
+}
+
+@media (min-width: 640px) and (orientation: landscape) {
+  header {
+    margin-bottom: 15px;
+  }
+
+  .resultH2 {
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 667px) and (orientation: landscape) {
+  .containerCities {
+    width: 70%;
+  }
+
+  .containerCities button {
+    width: 110px;
+  }
+}
+
+@media (min-width: 730px) and (orientation: landscape) {
+  .containerCities {
+    width: 65%;
+    margin-top: 25px;
+  }
+}
+
+@media (min-width: 812px) and (orientation: landscape) {
+  .containerCities {
+    width: 60%;
+  }
+}
+
+@media (min-width: 960px) and (orientation: landscape) {
+  header {
+    height: 180px;
+    margin-bottom: 50px;
+  }
+
+  header h1 {
+    line-height: 180px;
+  }
+
+  .containerCities {
+    width: 250px;
+    height: 300px;
+    margin-top: 150px;
+  }
+
+  .containerCities button {
+    width: 45%;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  header {
+    height: 150px;
+  }
+
+  header h1 {
+    line-height: 150px;
+  }
+
+  header img {
+    top: 90px;
+  }
+
+  .containerCities {
+    width: 25%;
+    height: 50%;
+    margin-top: 70px;
+  }
+
+  .weatherResult .container {
+    width: 25%;
+    height: 65%;
+  }
+
+  .weatherResult .container .weatherTime {
+    grid-column: 1 / 3;
+    grid-row: 7 / 8;
+  }
+}
+
+@media (min-width: 1200px) and (orientation: landscape) {
+  header {
+    height: 200px;
+  }
+
+  header h1 {
+    line-height: 200px;
+  }
+
+  .resultH2 {
+    margin-top: 20px;
+  }
+
+  .weatherResult .container {
+    width: 340px;
+  }
+
+  .weatherResult .container strong {
+    font-size: 26px;
+  }
+
+  .weatherResult .container strong.smallStrong {
+    font-size: 20px;
+  }
+
+  .weatherResult .container .weatherSky img {
+    height: 30px;
+  }
+
+  .containerCities {
+    width: 20%;
+    height: 40%;
+  }
+}
+
+@media (min-width: 1460px) and (orientation: landscape) {
+  .containerCities {
+    width: 14%;
+  }
+}
