@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -15,7 +16,12 @@ body {
 }
 
 #root {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   width: 100%;
   height: 100%;
@@ -30,7 +36,7 @@ header {
 
 header h1 {
   font-family: "Poiret One", cursive;
-  font-weight: 300;
+  /* font-weight: 300; */
   font-size: 24px;
   color: #707070;
   text-align: center;
@@ -41,24 +47,32 @@ header img {
   position: absolute;
   top: 50px;
   right: 8%;
+  -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
   width: 30px;
   height: auto;
   color: #707070;
+  -webkit-transform-origin: center;
   transform-origin: center;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
   cursor: pointer;
 }
 
 header img:hover {
+  -webkit-transform: translateY(-65%);
   transform: translateY(-65%);
 }
 
 main {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
 .weatherResult {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
@@ -79,6 +93,7 @@ main {
   height: 380px;
   border-radius: 20px;
   background-color: #fff;
+  -webkit-box-shadow: 0 2px 6px #707070;
   box-shadow: 0 2px 6px #707070;
   margin: 0 auto;
 }
@@ -171,12 +186,29 @@ main form input {
   height: 35px;
   font-family: "Poiret One", cursive;
   font-size: 16px;
+  font-weight: bold;
   border: none;
+  -webkit-box-shadow: 0 2px 6px #707070;
   box-shadow: 0 2px 6px #707070;
   border-radius: 20px;
   padding-left: 10px;
   margin: 0 auto;
   outline: none;
+}
+
+main form input::-webkit-input-placeholder {
+  font-family: "Poiret One", cursive;
+  font-size: 16px;
+}
+
+main form input:-ms-input-placeholder {
+  font-family: "Poiret One", cursive;
+  font-size: 16px;
+}
+
+main form input::-ms-input-placeholder {
+  font-family: "Poiret One", cursive;
+  font-size: 16px;
 }
 
 main form input::placeholder {
@@ -192,30 +224,42 @@ main button {
   border-radius: 20px;
   background-color: #fff;
   border: none;
+  -webkit-box-shadow: 0 2px 6px #707070;
   box-shadow: 0 2px 6px #707070;
   font-family: "Poiret One", cursive;
   font-size: 18px;
+  font-weight: bold;
+  color: #707070;
   margin: 10px auto;
   outline: none;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
   cursor: pointer;
   overflow: hidden;
 }
 
 main button:hover {
+  -webkit-transform: translateY(10%);
   transform: translateY(10%);
 }
 
 .containerCities {
   width: 240px;
   height: 280px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin: 45px auto 0;
 }
 
 .containerCities button {
+  -ms-flex-preferred-size: 100px;
   flex-basis: 100px;
   height: 30px;
   font-size: 16px;
